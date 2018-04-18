@@ -29,11 +29,11 @@
         var material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
         var cube = new THREE.Mesh(geometry, material);    //画出图形对象
         scene.add(cube);  //把图形对象放到场景里
-        camera.position.z = 5;
+        camera.position.z = 5;  //控制视图在页面的显示大小，也就是相机的焦距
         function render() {
             requestAnimationFrame(render);   //游戏循环，让浏览器去执行一次函数中的参数
-            cube.rotation.x += 0.1;
-            cube.rotation.y += 0.1;
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
             renderer.render(scene, camera);
         }
         render();
