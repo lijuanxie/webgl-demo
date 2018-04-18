@@ -14,21 +14,24 @@
 
 <body>
     <script>
-        var scene = new THREE.Scene();
+        var scene = new THREE.Scene(); //创建场景对象
 
-        var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000); //创建相机
 
-        var renderer = new THREE.WebGLRenderer();
+        var renderer = new THREE.WebGLRenderer();  //创建渲染器对象
 
         renderer.setSize(window.innerWidth, window.innerHeight);
 
         document.body.appendChild(renderer.domElement);
-        var geometry = new THREE.CubeGeometry(1, 1, 1);
+
+
+        var geometry = new THREE.CubeGeometry(1, 1, 1);  //立方体
         var material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-        var cube = new THREE.Mesh(geometry, material); scene.add(cube);
+        var cube = new THREE.Mesh(geometry, material);    //画出图形对象
+        scene.add(cube);  //把图形对象放到场景里
         camera.position.z = 5;
         function render() {
-            requestAnimationFrame(render);
+            requestAnimationFrame(render);   //游戏循环，让浏览器去执行一次函数中的参数
             cube.rotation.x += 0.1;
             cube.rotation.y += 0.1;
             renderer.render(scene, camera);
